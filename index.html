@@ -1,0 +1,1229 @@
+<!-- GENERATED SINGLE-FILE CALCULATORS HUB — READY TO SAVE AS index.html -->
+<!-- 
+    CALCULATORS HUB - SINGLE FILE ARCHITECTURE
+    ------------------------------------------
+    To split this file later:
+    1. Move content inside <style> to /assets/css/style.css
+    2. Move content inside <script> to /assets/js/app.js
+    3. Extract content templates into individual HTML files if moving to a static site generator.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculators Hub — Online Calculators for Math, Finance & Health</title>
+    <meta name="description" content="Free online calculators for finance, math, health, and more. Calculate percentages, EMI, BMI, mortgages, and solve equations instantly.">
+    <link rel="canonical" href="https://www.calculatorshub.com/">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Calculators Hub — Online Calculators for Math, Finance & Health">
+    <meta property="og:description" content="Free online calculators for finance, math, health, and more. Calculate percentages, EMI, BMI, mortgages, and solve equations instantly.">
+    <meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
+    <meta property="og:url" content="https://www.calculatorshub.com/">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Calculators Hub">
+    <meta name="twitter:description" content="Free online calculators for finance, math, health, and more.">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "Calculators Hub",
+          "url": "https://www.calculatorshub.com/",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.calculatorshub.com/#/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "Organization",
+          "name": "Calculators Hub",
+          "url": "https://www.calculatorshub.com/",
+          "logo": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 2h5v5h-5V5zM7 5h5v5H7V5zm0 7h5v5H7v-5zm7 5v-5h5v5h-5z'/%3E%3C/svg%3E"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "EMI Calculator",
+          "applicationCategory": "FinanceApplication",
+          "description": "Calculate your Equated Monthly Installment (EMI) for loans with amortization schedule.",
+          "url": "https://www.calculatorshub.com/#/finance/emi"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "BMI Calculator",
+          "applicationCategory": "HealthApplication",
+          "description": "Calculate Body Mass Index (BMI) to understand your weight category.",
+          "url": "https://www.calculatorshub.com/#/health/bmi"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Quadratic Equation Solver",
+          "applicationCategory": "EducationalApplication",
+          "description": "Solve quadratic equations and find roots, vertex, and discriminant.",
+          "url": "https://www.calculatorshub.com/#/math/quadratic"
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        /* --- DESIGN SYSTEM & VARIABLES --- */
+        :root {
+            --color-primary: #2563eb;
+            --color-primary-dark: #1d4ed8;
+            --color-secondary: #475569;
+            --color-accent: #f59e0b;
+            --color-bg: #f8fafc;
+            --color-surface: #ffffff;
+            --color-text: #0f172a;
+            --color-text-muted: #64748b;
+            --color-border: #e2e8f0;
+            --color-success: #10b981;
+            --color-error: #ef4444;
+
+            --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+
+            --radius-sm: 0.25rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        }
+
+        /* Dark Mode Support (System Preference) */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-bg: #0f172a;
+                --color-surface: #1e293b;
+                --color-text: #f1f5f9;
+                --color-text-muted: #94a3b8;
+                --color-border: #334155;
+            }
+        }
+
+        /* --- RESET & BASE --- */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            font-size: 16px; /* Base font size */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        a { color: var(--color-primary); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: var(--color-primary-dark); text-decoration: underline; }
+        h1, h2, h3, h4, h5, h6 { line-height: 1.2; margin-bottom: var(--spacing-md); color: var(--color-text); }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.5rem; font-weight: 700; border-bottom: 2px solid var(--color-border); padding-bottom: var(--spacing-sm); }
+        p { margin-bottom: var(--spacing-md); max-width: 70ch; }
+        
+        /* --- UTILITIES --- */
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 var(--spacing-md); }
+        .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+        .grid { display: grid; gap: var(--spacing-md); }
+        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        .flex { display: flex; gap: var(--spacing-md); align-items: center; }
+        .flex-col { flex-direction: column; align-items: flex-start; }
+        .mt-lg { margin-top: var(--spacing-lg); }
+        .text-center { text-align: center; }
+        .text-small { font-size: 0.875rem; color: var(--color-text-muted); }
+
+        /* --- COMPONENTS --- */
+        
+        /* Header & Nav */
+        header { background: var(--color-surface); border-bottom: 1px solid var(--color-border); position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-sm); }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+        .logo { font-weight: 800; font-size: 1.25rem; display: flex; align-items: center; gap: var(--spacing-sm); color: var(--color-text); text-decoration: none; }
+        .logo svg { width: 24px; height: 24px; fill: var(--color-primary); }
+        
+        .nav-desktop { display: none; gap: var(--spacing-md); }
+        .nav-desktop a { color: var(--color-text); font-weight: 500; }
+        .nav-desktop a:hover { color: var(--color-primary); text-decoration: none; }
+        
+        .mobile-toggle { display: block; background: none; border: none; cursor: pointer; padding: var(--spacing-sm); }
+        .mobile-toggle svg { width: 24px; height: 24px; fill: var(--color-text); }
+        
+        .mobile-menu {
+            display: none; position: absolute; top: 64px; left: 0; right: 0; 
+            background: var(--color-surface); border-bottom: 1px solid var(--color-border);
+            padding: var(--spacing-md); flex-direction: column; gap: var(--spacing-md);
+            box-shadow: var(--shadow-md);
+        }
+        .mobile-menu.open { display: flex; }
+
+        .search-box { position: relative; }
+        .search-box input { padding: var(--spacing-sm) var(--spacing-md); border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-bg); color: var(--color-text); }
+
+        @media (min-width: 768px) {
+            .nav-desktop { display: flex; }
+            .mobile-toggle { display: none; }
+            .mobile-menu { display: none !important; }
+        }
+
+        /* Breadcrumbs */
+        .breadcrumbs { padding: var(--spacing-sm) 0; font-size: 0.875rem; color: var(--color-text-muted); }
+        .breadcrumbs a { color: var(--color-text-muted); }
+        .breadcrumbs span { margin: 0 var(--spacing-xs); }
+
+        /* Cards */
+        .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--spacing-lg); box-shadow: var(--shadow-sm); transition: transform 0.2s; }
+        .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .card h3 { margin-bottom: var(--spacing-sm); font-size: 1.25rem; }
+        
+        /* Calculator Widget */
+        .calculator-widget { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--spacing-xl); margin: var(--spacing-xl) 0; box-shadow: var(--shadow-md); }
+        .calc-form { display: grid; gap: var(--spacing-md); max-width: 600px; }
+        .form-group { display: flex; flex-direction: column; gap: var(--spacing-xs); }
+        .form-group label { font-weight: 600; font-size: 0.9rem; }
+        .form-control { padding: var(--spacing-sm); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-size: 1rem; background: var(--color-bg); color: var(--color-text); }
+        .form-control:focus { outline: 2px solid var(--color-primary); border-color: transparent; }
+        
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: var(--spacing-sm) var(--spacing-lg); border-radius: var(--radius-sm); font-weight: 600; cursor: pointer; border: none; transition: background 0.2s; text-decoration: none; }
+        .btn-primary { background: var(--color-primary); color: white; }
+        .btn-primary:hover { background: var(--color-primary-dark); text-decoration: none; }
+        .btn-outline { border: 1px solid var(--color-border); background: transparent; color: var(--color-text); }
+        .btn-outline:hover { background: var(--color-bg); text-decoration: none; }
+        
+        .result-box { margin-top: var(--spacing-lg); padding: var(--spacing-md); background: var(--color-bg); border-radius: var(--radius-md); border-left: 4px solid var(--color-primary); }
+        .result-value { font-size: 1.5rem; font-weight: 800; color: var(--color-primary); }
+        .steps-box { margin-top: var(--spacing-md); font-size: 0.9rem; border-top: 1px solid var(--color-border); padding-top: var(--spacing-md); display: none; }
+        .steps-box.visible { display: block; }
+
+        /* Tables */
+        .table-wrapper { overflow-x: auto; margin-top: var(--spacing-md); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        th, td { padding: var(--spacing-sm); text-align: left; border-bottom: 1px solid var(--color-border); }
+        th { background: var(--color-bg); font-weight: 600; }
+
+        /* Footer */
+        footer { background: var(--color-surface); border-top: 1px solid var(--color-border); padding: var(--spacing-xl) 0; margin-top: auto; }
+        .footer-links { display: flex; flex-wrap: wrap; gap: var(--spacing-lg); margin-bottom: var(--spacing-lg); }
+        .footer-col h4 { font-size: 1rem; margin-bottom: var(--spacing-sm); }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: var(--spacing-xs); }
+        .footer-col a { color: var(--color-text-muted); font-size: 0.9rem; }
+        
+        /* Canvas */
+        canvas { max-width: 100%; height: auto; border: 1px solid var(--color-border); background: #fff; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="#/" class="logo">
+            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 2h5v5h-5V5zM7 5h5v5H7V5zm0 7h5v5H7v-5zm7 5v-5h5v5h-5z"/></svg>
+            Calculators Hub
+        </a>
+        
+        <div class="search-box">
+            <label for="site-search" class="visually-hidden">Search calculators</label>
+            <input type="text" id="site-search" placeholder="Search... (/)" aria-label="Search">
+        </div>
+
+        <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+        </button>
+
+        <nav class="nav-desktop">
+            <a href="#/">Home</a>
+            <a href="#/general">General</a>
+            <a href="#/math">Math</a>
+            <a href="#/finance">Finance</a>
+            <a href="#/health">Health</a>
+            <a href="#/reviews">Reviews</a>
+        </nav>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#/">Home</a>
+        <a href="#/general">General</a>
+        <a href="#/math">Math</a>
+        <a href="#/finance">Finance</a>
+        <a href="#/health">Health</a>
+        <a href="#/reviews">Reviews</a>
+    </div>
+</header>
+
+<div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <span id="breadcrumb-trail">Home</span>
+    </nav>
+</div>
+
+<main id="main-content" class="container mt-lg">
+    <!-- Dynamic Content Loaded Here -->
+    <div class="text-center" style="padding: 4rem;">Loading...</div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <div class="footer-col">
+                <h4>Hubs</h4>
+                <ul>
+                    <li><a href="#/math">Math Calculators</a></li>
+                    <li><a href="#/finance">Finance Calculators</a></li>
+                    <li><a href="#/health">Health Calculators</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="#/">Home</a></li>
+                    <li><a href="#/reviews">Reviews</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-small">
+            <p>&copy; 2025 Calculators Hub. All rights reserved.</p>
+            <p>Shortcuts: Press '/' to search, 'g' then 'm' for Math Hub.</p>
+        </div>
+        
+        <!-- Developer Notes (Hidden by default) -->
+        <details class="mt-lg">
+            <summary class="text-small" style="cursor:pointer">Developer Notes</summary>
+            <div class="text-small" style="margin-top: 1rem; border: 1px dashed var(--color-border); padding: 1rem;">
+                <p><strong>Content Map:</strong> Single Page Application using Hash Routing.</p>
+                <p><strong>Internal Linking:</strong> Silo structure (Hub -> Subpage). Cross-linking via "Related Tools".</p>
+                <p><strong>To Split Files:</strong> Extract CSS to style.css, JS to app.js. Use a static site generator for HTML templates.</p>
+                <p><strong>Analytics:</strong> <span id="interaction-counter">0</span> interactions this session.</p>
+            </div>
+        </details>
+    </div>
+</footer>
+
+<!-- SERVICE WORKER STUB -->
+<script>
+    // To make this offline-first:
+    // 1. Create sw.js
+    // 2. Cache index.html and assets
+    // 3. navigator.serviceWorker.register('sw.js')
+</script>
+
+<script>
+/**
+ * CALCULATORS HUB - MAIN APPLICATION LOGIC
+ */
+
+// --- STATE & ROUTING ---
+const appState = {
+    interactions: 0,
+    currentRoute: ''
+};
+
+const routes = {
+    // HOME
+    '/': {
+        title: 'Calculators Hub — Online Calculators for Math, Finance & Health',
+        description: 'Free online calculators for finance, math, health, and more.',
+        render: () => `
+            <section class="text-center" style="padding: 4rem 0;">
+                <h1>Calculators Hub</h1>
+                <p style="margin: 0 auto;">Your one-stop destination for accurate, free online calculators. Solve math problems, plan your finances, and track your health.</p>
+            </section>
+            <section>
+                <h2>Browse by Category</h2>
+                <div class="grid grid-2 mt-lg">
+                    <a href="#/math" class="card">
+                        <h3>Math Calculators</h3>
+                        <p>Percentage, Quadratic Equation, GPA, Derivatives, and more.</p>
+                    </a>
+                    <a href="#/finance" class="card">
+                        <h3>Finance Calculators</h3>
+                        <p>EMI, Mortgage, Compound Interest, Loans.</p>
+                    </a>
+                    <a href="#/health" class="card">
+                        <h3>Health Calculators</h3>
+                        <p>BMI, BMR, Calorie needs, Pregnancy due date.</p>
+                    </a>
+                    <a href="#/general" class="card">
+                        <h3>General Tools</h3>
+                        <p>Basic calculators and unit conversions.</p>
+                    </a>
+                </div>
+            </section>
+        `
+    },
+    
+    // HUBS
+    '/general': {
+        title: 'General Calculators - Calculators Hub',
+        description: 'Basic calculators and everyday tools.',
+        render: () => renderHub('General Calculators', 'Everyday tools for quick calculations.', [
+            { title: 'Types of Calculators', link: '#/general/types-of-calculators' },
+            { title: 'Scientific vs Basic', link: '#/general/scientific-vs-basic' }
+        ])
+    },
+    '/math': {
+        title: 'Math Calculators - Solve Equations & Graphing',
+        description: 'Free math tools: Percentage, Quadratic Solver, GPA, Derivatives, and Graphing.',
+        render: () => renderHub('Math Calculators', 'Solve complex math problems instantly with our suite of free tools.', [
+            { title: 'Percentage Calculator', link: '#/math/percentage' },
+            { title: 'Quadratic Equation Solver', link: '#/math/quadratic' },
+            { title: 'GPA Calculator', link: '#/math/gpa' },
+            { title: 'Equation Solver & Derivative', link: '#/math/derivative' },
+            { title: 'Graphing Tool', link: '#/math/graphing' }
+        ])
+    },
+    '/finance': {
+        title: 'Finance Calculators - EMI, Mortgage & Interest',
+        description: 'Plan your financial future with EMI, Mortgage, and Compound Interest calculators.',
+        render: () => renderHub('Finance Calculators', 'Make informed financial decisions with our precise calculators.', [
+            { title: 'EMI Calculator', link: '#/finance/emi' },
+            { title: 'Mortgage Calculator', link: '#/finance/mortgage' },
+            { title: 'Compound Interest Calculator', link: '#/finance/compound-interest' }
+        ])
+    },
+    '/health': {
+        title: 'Health Calculators - BMI, BMR & Calories',
+        description: 'Track your health metrics with BMI, BMR, and Calorie calculators.',
+        render: () => renderHub('Health Calculators', 'Monitor your health and fitness goals.', [
+            { title: 'BMI Calculator', link: '#/health/bmi' },
+            { title: 'BMR & Calorie Calculator', link: '#/health/calorie' }
+        ])
+    },
+    '/reviews': {
+        title: 'Product Reviews - Calculators Hub',
+        description: 'Reviews of physical calculators and software.',
+        render: () => `<h1>Product Reviews</h1><p>Coming soon...</p><a href="#/">Back Home</a>`
+    },
+
+    // CALCULATOR PAGES (SUBPAGES)
+    '/math/percentage': {
+        title: 'Percentage Calculator - Calculate % Increase/Decrease',
+        description: 'Free percentage calculator. Find percentage of a number, percentage change, and more.',
+        render: () => renderPage(
+            'Percentage Calculator',
+            'percentages, math, discount',
+            'Calculating percentages is an essential skill for shopping (discounts), finance (interest rates), and statistics. This tool helps you find X% of Y, or determine what percentage X is of Y.',
+            `<div id="calc-percentage"></div>`,
+            ['#/finance/emi', '#/math/gpa']
+        )
+    },
+    '/math/quadratic': {
+        title: 'Quadratic Equation Solver - Find Roots',
+        description: 'Solve quadratic equations (ax^2 + bx + c = 0). Find real and complex roots.',
+        render: () => renderPage(
+            'Quadratic Equation Solver',
+            'algebra, quadratic, roots',
+            'A quadratic equation is a polynomial equation of degree 2. Use this solver to find the roots (x-intercepts), vertex, and discriminant of any quadratic equation.',
+            `<div id="calc-quadratic"></div>`,
+            ['#/math/derivative', '#/math/graphing']
+        )
+    },
+    '/math/gpa': {
+        title: 'GPA Calculator - College Grade Point Average',
+        description: 'Calculate your semester and cumulative GPA based on credits and grades.',
+        render: () => renderPage(
+            'GPA Calculator',
+            'education, grades, college',
+            'Track your academic performance with our weighted GPA calculator. Enter your courses, credits, and grades to see your semester average.',
+            `<div id="calc-gpa"></div>`,
+            ['#/math/percentage', '#/general']
+        )
+    },
+    '/math/derivative': {
+        title: 'Equation Solver & Derivative Calculator',
+        description: 'Find roots of equations and calculate numeric derivatives.',
+        render: () => renderPage(
+            'Equation Solver & Derivative',
+            'calculus, algebra, roots',
+            'Find the roots of a function or calculate the slope (derivative) at a specific point using numeric methods.',
+            `<div id="calc-derivative"></div>`,
+            ['#/math/graphing', '#/math/quadratic']
+        )
+    },
+    '/math/graphing': {
+        title: 'Graphing Tool - Plot Functions',
+        description: 'Simple function plotter. Visualize y = f(x) graphs.',
+        render: () => renderPage(
+            'Graphing Tool',
+            'graph, plot, function',
+            'Visualize mathematical functions on a coordinate plane. Enter a function of x (e.g., x*x or sin(x)) to see its graph.',
+            `<div id="calc-graphing"></div>`,
+            ['#/math/derivative', '#/math/quadratic']
+        )
+    },
+    '/finance/emi': {
+        title: 'EMI Calculator - Loan Amortization Schedule',
+        description: 'Calculate monthly EMI for home, car, or personal loans with amortization table.',
+        render: () => renderPage(
+            'EMI Calculator',
+            'loan, finance, interest',
+            'Equated Monthly Installment (EMI) is the fixed payment amount made by a borrower to a lender at a specified date each calendar month. Use this tool to plan your loan repayment.',
+            `<div id="calc-emi"></div>`,
+            ['#/finance/mortgage', '#/finance/compound-interest']
+        )
+    },
+    '/finance/mortgage': {
+        title: 'Mortgage Calculator - Estimate Monthly Payments',
+        description: 'Estimate mortgage payments including property tax, insurance, and PMI.',
+        render: () => renderPage(
+            'Mortgage Calculator',
+            'real estate, home loan, housing',
+            'Buying a home is a big decision. Use our mortgage calculator to estimate your monthly payment, including principal, interest, taxes, and insurance.',
+            `<div id="calc-mortgage"></div>`,
+            ['#/finance/emi', '#/finance/compound-interest']
+        )
+    },
+    '/finance/compound-interest': {
+        title: 'Compound Interest Calculator - Investment Growth',
+        description: 'Calculate how your investments grow over time with compound interest.',
+        render: () => renderPage(
+            'Compound Interest Calculator',
+            'investing, savings, growth',
+            'Compound interest is the interest on a loan or deposit calculated based on both the initial principal and the accumulated interest from previous periods.',
+            `<div id="calc-compound"></div>`,
+            ['#/finance/emi', '#/math/percentage']
+        )
+    },
+    '/health/bmi': {
+        title: 'BMI Calculator - Body Mass Index',
+        description: 'Calculate BMI to check if you are in a healthy weight range.',
+        render: () => renderPage(
+            'BMI Calculator',
+            'health, weight, fitness',
+            'Body Mass Index (BMI) is a simple index of weight-for-height that is commonly used to classify underweight, overweight and obesity in adults.',
+            `<div id="calc-bmi"></div>`,
+            ['#/health/calorie', '#/general']
+        )
+    },
+    '/health/calorie': {
+        title: 'BMR & Calorie Calculator',
+        description: 'Calculate Basal Metabolic Rate and daily calorie needs.',
+        render: () => renderPage(
+            'BMR & Calorie Calculator',
+            'diet, nutrition, energy',
+            'Your Basal Metabolic Rate (BMR) is the number of calories your body needs to accomplish its most basic (basal) life-sustaining functions.',
+            `<div id="calc-calorie"></div>`,
+            ['#/health/bmi', '#/math/percentage']
+        )
+    }
+};
+
+// --- RENDER HELPERS ---
+function renderHub(title, intro, links) {
+    const linkList = links.map(l => `<li><a href="${l.link}">${l.title}</a></li>`).join('');
+    return `
+        <h1>${title}</h1>
+        <p class="lead">${intro}</p>
+        <div class="card mt-lg">
+            <h3>Available Tools</h3>
+            <ul style="padding-left: 1.5rem; margin-top: 1rem;">${linkList}</ul>
+        </div>
+    `;
+}
+
+function renderPage(title, keywords, intro, widgetHtml, relatedLinks) {
+    const relatedHtml = relatedLinks.map(link => {
+        // Find title from routes
+        const routeKey = link.replace('#', '');
+        const route = routes[routeKey] || { title: 'Related Tool' };
+        // Strip site name from title for cleaner link
+        const cleanTitle = route.title.split('-')[0].trim();
+        return `<a href="${link}" class="btn btn-outline">${cleanTitle}</a>`;
+    }).join(' ');
+
+    return `
+        <article>
+            <header>
+                <h1>${title}</h1>
+                <p class="text-small">Keywords: ${keywords}</p>
+            </header>
+            <section class="mt-lg">
+                <p>${intro}</p>
+            </section>
+            
+            <section class="calculator-widget">
+                ${widgetHtml}
+            </section>
+
+            <section class="mt-lg">
+                <h3>Related Tools & Guides</h3>
+                <div class="flex" style="flex-wrap: wrap; margin-top: 1rem;">
+                    ${relatedHtml}
+                </div>
+            </section>
+
+            <nav class="flex" style="justify-content: space-between; margin-top: 3rem; border-top: 1px solid var(--color-border); padding-top: 1rem;">
+                <button onclick="window.history.back()" class="btn btn-outline">← Back</button>
+                <a href="#/" class="btn btn-outline">Home →</a>
+            </nav>
+        </article>
+    `;
+}
+
+// --- CORE APP LOGIC ---
+function init() {
+    window.addEventListener('hashchange', handleRoute);
+    handleRoute(); // Initial load
+
+    // Mobile Menu
+    document.querySelector('.mobile-toggle').addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.toggle('open');
+        const expanded = document.getElementById('mobile-menu').classList.contains('open');
+        document.querySelector('.mobile-toggle').setAttribute('aria-expanded', expanded);
+    });
+
+    // Keyboard Shortcuts
+    document.addEventListener('keydown', (e) => {
+        if (e.key === '/' && document.activeElement.tagName !== 'INPUT') {
+            e.preventDefault();
+            document.getElementById('site-search').focus();
+        }
+    });
+}
+
+function handleRoute() {
+    let hash = window.location.hash.slice(1) || '/';
+    // Handle sub-routes that might not exist by falling back or 404
+    // For this simple version, exact match or simple prefix check
+    
+    // Normalize hash
+    if (hash.endsWith('/') && hash.length > 1) hash = hash.slice(0, -1);
+
+    const route = routes[hash];
+    const main = document.getElementById('main-content');
+    const breadcrumb = document.getElementById('breadcrumb-trail');
+
+    if (route) {
+        document.title = route.title;
+        document.querySelector('meta[name="description"]').setAttribute('content', route.description);
+        main.innerHTML = route.render();
+        
+        // Update Breadcrumbs
+        const parts = hash.split('/').filter(Boolean);
+        let trailHtml = '<a href="#/">Home</a>';
+        let currentPath = '';
+        parts.forEach((part, index) => {
+            currentPath += '/' + part;
+            const isLast = index === parts.length - 1;
+            const name = part.charAt(0).toUpperCase() + part.slice(1);
+            if (isLast) {
+                trailHtml += ` <span>/</span> <span>${name}</span>`;
+            } else {
+                trailHtml += ` <span>/</span> <a href="#${currentPath}">${name}</a>`;
+            }
+        });
+        breadcrumb.innerHTML = trailHtml;
+
+        // Initialize Calculator if present
+        if (hash.includes('/math/percentage')) initPercentageCalc();
+        if (hash.includes('/math/quadratic')) initQuadraticCalc();
+        if (hash.includes('/math/gpa')) initGPACalc();
+        if (hash.includes('/math/derivative')) initDerivativeCalc();
+        if (hash.includes('/math/graphing')) initGraphingCalc();
+        if (hash.includes('/finance/emi')) initEMICalc();
+        if (hash.includes('/finance/mortgage')) initMortgageCalc();
+        if (hash.includes('/finance/compound-interest')) initCompoundCalc();
+        if (hash.includes('/health/bmi')) initBMICalc();
+        if (hash.includes('/health/calorie')) initCalorieCalc();
+
+        window.scrollTo(0, 0);
+        trackInteraction();
+    } else {
+        main.innerHTML = `<h1>404 Not Found</h1><p>The page you requested does not exist.</p><a href="#/">Go Home</a>`;
+    }
+}
+
+function trackInteraction() {
+    appState.interactions++;
+    const el = document.getElementById('interaction-counter');
+    if(el) el.textContent = appState.interactions;
+}
+
+// --- CALCULATOR IMPLEMENTATIONS ---
+
+// 1. Percentage Calculator
+function initPercentageCalc() {
+    const container = document.getElementById('calc-percentage');
+    container.innerHTML = `
+        <div class="calc-form">
+            <div class="form-group">
+                <label>Calculation Type</label>
+                <select id="pct-type" class="form-control">
+                    <option value="find_pct">What is X% of Y?</option>
+                    <option value="is_pct">X is what % of Y?</option>
+                    <option value="pct_change">Percentage Increase/Decrease from X to Y</option>
+                </select>
+            </div>
+            <div class="grid grid-2">
+                <div class="form-group">
+                    <label id="lbl-x">Percentage (X)</label>
+                    <input type="number" id="pct-x" class="form-control" placeholder="e.g. 20">
+                </div>
+                <div class="form-group">
+                    <label id="lbl-y">Value (Y)</label>
+                    <input type="number" id="pct-y" class="form-control" placeholder="e.g. 100">
+                </div>
+            </div>
+            <button id="btn-calc-pct" class="btn btn-primary">Calculate</button>
+        </div>
+        <div id="res-pct" class="result-box" style="display:none">
+            <div class="result-value" id="val-pct"></div>
+            <button class="btn btn-outline" style="margin-top:1rem" onclick="toggleSteps('steps-pct')">Show Steps</button>
+            <div id="steps-pct" class="steps-box"></div>
+        </div>
+    `;
+
+    const typeSelect = document.getElementById('pct-type');
+    const lblX = document.getElementById('lbl-x');
+    const lblY = document.getElementById('lbl-y');
+
+    typeSelect.addEventListener('change', () => {
+        const t = typeSelect.value;
+        if (t === 'find_pct') { lblX.textContent = 'Percentage (X)'; lblY.textContent = 'Value (Y)'; }
+        else if (t === 'is_pct') { lblX.textContent = 'Value (X)'; lblY.textContent = 'Total (Y)'; }
+        else { lblX.textContent = 'From (X)'; lblY.textContent = 'To (Y)'; }
+    });
+
+    document.getElementById('btn-calc-pct').addEventListener('click', () => {
+        const x = parseFloat(document.getElementById('pct-x').value);
+        const y = parseFloat(document.getElementById('pct-y').value);
+        const type = typeSelect.value;
+        let res, steps;
+
+        if (isNaN(x) || isNaN(y)) return alert('Please enter valid numbers');
+
+        if (type === 'find_pct') {
+            res = (x / 100) * y;
+            steps = `Formula: (X / 100) * Y<br>(${x} / 100) * ${y} = ${res}`;
+        } else if (type === 'is_pct') {
+            res = (x / y) * 100;
+            steps = `Formula: (X / Y) * 100<br>(${x} / ${y}) * 100 = ${res}%`;
+            res = res.toFixed(2) + '%';
+        } else {
+            const diff = y - x;
+            res = (diff / x) * 100;
+            const dir = res > 0 ? 'Increase' : 'Decrease';
+            steps = `Formula: ((Y - X) / X) * 100<br>((${y} - ${x}) / ${x}) * 100 = ${res.toFixed(2)}%`;
+            res = `${Math.abs(res).toFixed(2)}% ${dir}`;
+        }
+
+        document.getElementById('val-pct').textContent = res;
+        document.getElementById('steps-pct').innerHTML = steps;
+        document.getElementById('res-pct').style.display = 'block';
+    });
+}
+
+// 2. EMI Calculator
+function initEMICalc() {
+    const container = document.getElementById('calc-emi');
+    container.innerHTML = `
+        <div class="calc-form">
+            <div class="form-group">
+                <label>Loan Amount (Principal)</label>
+                <input type="number" id="emi-p" class="form-control" value="100000">
+            </div>
+            <div class="grid grid-2">
+                <div class="form-group">
+                    <label>Interest Rate (% per year)</label>
+                    <input type="number" id="emi-r" class="form-control" value="8.5">
+                </div>
+                <div class="form-group">
+                    <label>Tenure (Years)</label>
+                    <input type="number" id="emi-n" class="form-control" value="5">
+                </div>
+            </div>
+            <button id="btn-calc-emi" class="btn btn-primary">Calculate EMI</button>
+        </div>
+        <div id="res-emi" class="result-box" style="display:none">
+            <p>Monthly EMI</p>
+            <div class="result-value" id="val-emi"></div>
+            <p class="mt-lg">Total Interest: <span id="val-emi-int"></span></p>
+            <p>Total Payment: <span id="val-emi-total"></span></p>
+            <button class="btn btn-outline" onclick="toggleSteps('table-emi-box')">Show Amortization Table</button>
+            <div id="table-emi-box" class="steps-box table-wrapper"></div>
+        </div>
+    `;
+
+    document.getElementById('btn-calc-emi').addEventListener('click', () => {
+        const P = parseFloat(document.getElementById('emi-p').value);
+        const R = parseFloat(document.getElementById('emi-r').value) / 12 / 100;
+        const N = parseFloat(document.getElementById('emi-n').value) * 12;
+
+        if (isNaN(P) || isNaN(R) || isNaN(N)) return alert('Invalid input');
+
+        const emi = (P * R * Math.pow(1 + R, N)) / (Math.pow(1 + R, N) - 1);
+        const total = emi * N;
+        const totalInt = total - P;
+
+        document.getElementById('val-emi').textContent = emi.toFixed(2);
+        document.getElementById('val-emi-int').textContent = totalInt.toFixed(2);
+        document.getElementById('val-emi-total').textContent = total.toFixed(2);
+        document.getElementById('res-emi').style.display = 'block';
+
+        // Generate Table (First 12 months only for brevity in single file, or full if needed)
+        let balance = P;
+        let html = '<table><thead><tr><th>Month</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead><tbody>';
+        for (let i = 1; i <= Math.min(N, 60); i++) { // Limit to 60 rows for DOM perf
+            const interest = balance * R;
+            const principal = emi - interest;
+            balance -= principal;
+            if (balance < 0) balance = 0;
+            html += `<tr><td>${i}</td><td>${principal.toFixed(2)}</td><td>${interest.toFixed(2)}</td><td>${balance.toFixed(2)}</td></tr>`;
+        }
+        html += '</tbody></table>';
+        if (N > 60) html += '<p class="text-small">Showing first 60 months only.</p>';
+        document.getElementById('table-emi-box').innerHTML = html;
+    });
+}
+
+// 3. Mortgage Calculator (Simplified reuse of EMI logic with extra fields)
+function initMortgageCalc() {
+    const container = document.getElementById('calc-mortgage');
+    container.innerHTML = `
+        <div class="calc-form">
+            <div class="form-group">
+                <label>Home Price</label>
+                <input type="number" id="mort-price" class="form-control" value="300000">
+            </div>
+            <div class="grid grid-2">
+                <div class="form-group">
+                    <label>Down Payment</label>
+                    <input type="number" id="mort-down" class="form-control" value="60000">
+                </div>
+                <div class="form-group">
+                    <label>Interest Rate (%)</label>
+                    <input type="number" id="mort-rate" class="form-control" value="4.5">
+                </div>
+            </div>
+            <div class="grid grid-2">
+                <div class="form-group">
+                    <label>Loan Term (Years)</label>
+                    <input type="number" id="mort-term" class="form-control" value="30">
+                </div>
+                <div class="form-group">
+                    <label>Annual Property Tax</label>
+                    <input type="number" id="mort-tax" class="form-control" value="3000">
+                </div>
+            </div>
+            <button id="btn-calc-mort" class="btn btn-primary">Calculate Payment</button>
+        </div>
+        <div id="res-mort" class="result-box" style="display:none">
+            <p>Monthly Payment</p>
+            <div class="result-value" id="val-mort"></div>
+            <div class="text-small mt-lg" id="breakdown-mort"></div>
+        </div>
+    `;
+
+    document.getElementById('btn-calc-mort').addEventListener('click', () => {
+        const price = parseFloat(document.getElementById('mort-price').value);
+        const down = parseFloat(document.getElementById('mort-down').value);
+        const rate = parseFloat(document.getElementById('mort-rate').value) / 100 / 12;
+        const term = parseFloat(document.getElementById('mort-term').value) * 12;
+        const tax = parseFloat(document.getElementById('mort-tax').value) / 12;
+
+        const P = price - down;
+        const emi = (P * rate * Math.pow(1 + rate, term)) / (Math.pow(1 + rate, term) - 1);
+        const totalMonthly = emi + tax;
+
+        document.getElementById('val-mort').textContent = totalMonthly.toFixed(2);
+        document.getElementById('breakdown-mort').innerHTML = `
+            Principal & Interest: ${emi.toFixed(2)}<br>
+            Property Tax: ${tax.toFixed(2)}
+        `;
+        document.getElementById('res-mort').style.display = 'block';
+    });
+}
+
+// 4. Compound Interest
+function initCompoundCalc() {
+    const container = document.getElementById('calc-compound');
+    container.innerHTML = `
+        <div class="calc-form">
+            <div class="grid grid-2">
+                <div class="form-group"><label>Initial Principal</label><input type="number" id="ci-p" class="form-control" value="5000"></div>
+                <div class="form-group"><label>Monthly Contribution</label><input type="number" id="ci-c" class="form-control" value="100"></div>
+            </div>
+            <div class="grid grid-2">
+                <div class="form-group"><label>Interest Rate (%)</label><input type="number" id="ci-r" class="form-control" value="7"></div>
+                <div class="form-group"><label>Years</label><input type="number" id="ci-t" class="form-control" value="10"></div>
+            </div>
+            <button id="btn-calc-ci" class="btn btn-primary">Calculate Growth</button>
+        </div>
+        <div id="res-ci" class="result-box" style="display:none">
+            <p>Future Value</p>
+            <div class="result-value" id="val-ci"></div>
+            <canvas id="chart-ci" height="200" style="margin-top:1rem"></canvas>
+        </div>
+    `;
+
+    document.getElementById('btn-calc-ci').addEventListener('click', () => {
+        const P = parseFloat(document.getElementById('ci-p').value);
+        const C = parseFloat(document.getElementById('ci-c').value);
+        const R = parseFloat(document.getElementById('ci-r').value) / 100 / 12;
+        const T = parseFloat(document.getElementById('ci-t').value) * 12;
+
+        let balance = P;
+        const dataPoints = [];
+        for (let i = 0; i <= T; i++) {
+            if (i % 12 === 0) dataPoints.push(balance); // Yearly points
+            balance = balance * (1 + R) + C;
+        }
+
+        document.getElementById('val-ci').textContent = balance.toFixed(2);
+        document.getElementById('res-ci').style.display = 'block';
+        
+        // Simple Canvas Chart
+        drawChart(document.getElementById('chart-ci'), dataPoints);
+    });
+}
+
+// 5. BMI Calculator
+function initBMICalc() {
+    const container = document.getElementById('calc-bmi');
+    container.innerHTML = `
+        <div class="calc-form">
+            <div class="grid grid-2">
+                <div class="form-group"><label>Weight (kg)</label><input type="number" id="bmi-w" class="form-control" value="70"></div>
+                <div class="form-group"><label>Height (cm)</label><input type="number" id="bmi-h" class="form-control" value="170"></div>
+            </div>
+            <button id="btn-calc-bmi" class="btn btn-primary">Calculate BMI</button>
+        </div>
+        <div id="res-bmi" class="result-box" style="display:none">
+            <div class="result-value" id="val-bmi"></div>
+            <p id="msg-bmi"></p>
+        </div>
+    `;
+
+    document.getElementById('btn-calc-bmi').addEventListener('click', () => {
+        const w = parseFloat(document.getElementById('bmi-w').value);
+        const h = parseFloat(document.getElementById('bmi-h').value) / 100; // cm to m
+        if (isNaN(w) || isNaN(h)) return;
+        const bmi = w / (h * h);
+        let cat = '';
+        if (bmi < 18.5) cat = 'Underweight';
+        else if (bmi < 25) cat = 'Normal weight';
+        else if (bmi < 30) cat = 'Overweight';
+        else cat = 'Obese';
+
+        document.getElementById('val-bmi').textContent = bmi.toFixed(1);
+        document.getElementById('msg-bmi').textContent = `Category: ${cat}`;
+        document.getElementById('res-bmi').style.display = 'block';
+    });
+}
+
+// 6. BMR + Calorie
+function initCalorieCalc() {
+    const container = document.getElementById('calc-calorie');
+    container.innerHTML = `
+        <div class="calc-form">
+            <div class="grid grid-2">
+                <div class="form-group"><label>Weight (kg)</label><input type="number" id="cal-w" class="form-control" value="70"></div>
+                <div class="form-group"><label>Height (cm)</label><input type="number" id="cal-h" class="form-control" value="170"></div>
+            </div>
+            <div class="grid grid-2">
+                <div class="form-group"><label>Age</label><input type="number" id="cal-a" class="form-control" value="30"></div>
+                <div class="form-group">
+                    <label>Gender</label>
+                    <select id="cal-g" class="form-control"><option value="m">Male</option><option value="f">Female</option></select>
+                </div>
+            </div>
+            <button id="btn-calc-cal" class="btn btn-primary">Calculate Calories</button>
+        </div>
+        <div id="res-cal" class="result-box" style="display:none">
+            <p>Basal Metabolic Rate (BMR)</p>
+            <div class="result-value" id="val-bmr"></div>
+            <p class="text-small">Daily calories to maintain weight (Sedentary): <span id="val-cal"></span></p>
+        </div>
+    `;
+
+    document.getElementById('btn-calc-cal').addEventListener('click', () => {
+        const w = parseFloat(document.getElementById('cal-w').value);
+        const h = parseFloat(document.getElementById('cal-h').value);
+        const a = parseFloat(document.getElementById('cal-a').value);
+        const g = document.getElementById('cal-g').value;
+        
+        // Mifflin-St Jeor Equation
+        let bmr = (10 * w) + (6.25 * h) - (5 * a);
+        bmr += (g === 'm' ? 5 : -161);
+
+        document.getElementById('val-bmr').textContent = Math.round(bmr) + ' kcal';
+        document.getElementById('val-cal').textContent = Math.round(bmr * 1.2) + ' kcal';
+        document.getElementById('res-cal').style.display = 'block';
+    });
+}
+
+// 7. Quadratic Solver
+function initQuadraticCalc() {
+    const container = document.getElementById('calc-quadratic');
+    container.innerHTML = `
+        <div class="calc-form">
+            <p>Equation: ax² + bx + c = 0</p>
+            <div class="grid grid-3">
+                <input type="number" id="q-a" class="form-control" placeholder="a" value="1">
+                <input type="number" id="q-b" class="form-control" placeholder="b" value="-3">
+                <input type="number" id="q-c" class="form-control" placeholder="c" value="2">
+            </div>
+            <button id="btn-calc-quad" class="btn btn-primary">Solve</button>
+        </div>
+        <div id="res-quad" class="result-box" style="display:none">
+            <div class="result-value" id="val-quad"></div>
+            <div id="steps-quad" class="steps-box visible"></div>
+        </div>
+    `;
+
+    document.getElementById('btn-calc-quad').addEventListener('click', () => {
+        const a = parseFloat(document.getElementById('q-a').value);
+        const b = parseFloat(document.getElementById('q-b').value);
+        const c = parseFloat(document.getElementById('q-c').value);
+        
+        const d = b*b - 4*a*c;
+        let res = '';
+        let steps = `Discriminant (D) = b² - 4ac = ${d}<br>`;
+
+        if (d > 0) {
+            const x1 = (-b + Math.sqrt(d)) / (2*a);
+            const x2 = (-b - Math.sqrt(d)) / (2*a);
+            res = `x1 = ${x1}, x2 = ${x2}`;
+            steps += `Two real roots.`;
+        } else if (d === 0) {
+            const x = -b / (2*a);
+            res = `x = ${x}`;
+            steps += `One real root.`;
+        } else {
+            const real = (-b / (2*a)).toFixed(2);
+            const imag = (Math.sqrt(-d) / (2*a)).toFixed(2);
+            res = `${real} ± ${imag}i`;
+            steps += `Complex roots.`;
+        }
+
+        document.getElementById('val-quad').textContent = res;
+        document.getElementById('steps-quad').innerHTML = steps;
+        document.getElementById('res-quad').style.display = 'block';
+    });
+}
+
+// 8. GPA Calculator
+function initGPACalc() {
+    const container = document.getElementById('calc-gpa');
+    container.innerHTML = `
+        <div class="calc-form">
+            <div id="gpa-rows">
+                <div class="grid grid-3 gpa-row mb-2">
+                    <input type="text" class="form-control" placeholder="Course">
+                    <input type="number" class="form-control gpa-credit" placeholder="Credits" value="3">
+                    <select class="form-control gpa-grade">
+                        <option value="4">A</option><option value="3">B</option><option value="2">C</option><option value="1">D</option><option value="0">F</option>
+                    </select>
+                </div>
+            </div>
+            <button class="btn btn-outline" onclick="addGpaRow()">+ Add Course</button>
+            <button id="btn-calc-gpa" class="btn btn-primary">Calculate GPA</button>
+        </div>
+        <div id="res-gpa" class="result-box" style="display:none">
+            <div class="result-value" id="val-gpa"></div>
+        </div>
+    `;
+    
+    // Global helper for the onclick attribute
+    window.addGpaRow = () => {
+        const div = document.createElement('div');
+        div.className = 'grid grid-3 gpa-row mb-2';
+        div.style.marginTop = '0.5rem';
+        div.innerHTML = `
+            <input type="text" class="form-control" placeholder="Course">
+            <input type="number" class="form-control gpa-credit" placeholder="Credits" value="3">
+            <select class="form-control gpa-grade">
+                <option value="4">A</option><option value="3">B</option><option value="2">C</option><option value="1">D</option><option value="0">F</option>
+            </select>
+        `;
+        document.getElementById('gpa-rows').appendChild(div);
+    };
+
+    document.getElementById('btn-calc-gpa').addEventListener('click', () => {
+        let totalPts = 0;
+        let totalCr = 0;
+        document.querySelectorAll('.gpa-row').forEach(row => {
+            const cr = parseFloat(row.querySelector('.gpa-credit').value) || 0;
+            const gr = parseFloat(row.querySelector('.gpa-grade').value) || 0;
+            totalPts += cr * gr;
+            totalCr += cr;
+        });
+        const gpa = totalCr ? (totalPts / totalCr).toFixed(2) : 0;
+        document.getElementById('val-gpa').textContent = `GPA: ${gpa}`;
+        document.getElementById('res-gpa').style.display = 'block';
+    });
+}
+
+// 9. Derivative / Equation
+function initDerivativeCalc() {
+    const container = document.getElementById('calc-derivative');
+    container.innerHTML = `
+        <div class="calc-form">
+            <div class="form-group">
+                <label>Function f(x) (JS syntax, e.g. x*x + 2*x)</label>
+                <input type="text" id="deriv-f" class="form-control" value="x*x">
+            </div>
+            <div class="form-group">
+                <label>Point x</label>
+                <input type="number" id="deriv-x" class="form-control" value="2">
+            </div>
+            <button id="btn-calc-deriv" class="btn btn-primary">Calculate Derivative</button>
+        </div>
+        <div id="res-deriv" class="result-box" style="display:none">
+            <div class="result-value" id="val-deriv"></div>
+        </div>
+    `;
+
+    document.getElementById('btn-calc-deriv').addEventListener('click', () => {
+        const fStr = document.getElementById('deriv-f').value;
+        const xVal = parseFloat(document.getElementById('deriv-x').value);
+        
+        try {
+            // Safe evaluation wrapper
+            const f = (x) => safeEval(fStr, x);
+            
+            // Numeric Derivative: (f(x+h) - f(x-h)) / 2h
+            const h = 0.0001;
+            const d = (f(xVal + h) - f(xVal - h)) / (2 * h);
+            
+            document.getElementById('val-deriv').textContent = `f'(${xVal}) ≈ ${d.toFixed(4)}`;
+            document.getElementById('res-deriv').style.display = 'block';
+        } catch (e) {
+            alert('Invalid function expression');
+        }
+    });
+}
+
+// 10. Graphing Tool
+function initGraphingCalc() {
+    const container = document.getElementById('calc-graphing');
+    container.innerHTML = `
+        <div class="calc-form">
+            <div class="form-group">
+                <label>Function y = f(x)</label>
+                <input type="text" id="graph-f" class="form-control" value="Math.sin(x) * x">
+            </div>
+            <button id="btn-graph" class="btn btn-primary">Plot</button>
+        </div>
+        <canvas id="graph-canvas" width="600" height="400" style="margin-top:1rem; border:1px solid #ccc"></canvas>
+    `;
+
+    document.getElementById('btn-graph').addEventListener('click', () => {
+        const fStr = document.getElementById('graph-f').value;
+        const canvas = document.getElementById('graph-canvas');
+        const ctx = canvas.getContext('2d');
+        const w = canvas.width;
+        const h = canvas.height;
+        
+        ctx.clearRect(0, 0, w, h);
+        
+        // Draw Axes
+        ctx.beginPath();
+        ctx.moveTo(0, h/2); ctx.lineTo(w, h/2); // X axis
+        ctx.moveTo(w/2, 0); ctx.lineTo(w/2, h); // Y axis
+        ctx.strokeStyle = '#ccc';
+        ctx.stroke();
+
+        // Plot
+        ctx.beginPath();
+        ctx.strokeStyle = '#2563eb';
+        ctx.lineWidth = 2;
+        
+        const scale = 40; // pixels per unit
+        
+        try {
+            const f = (x) => safeEval(fStr, x);
+            
+            for (let px = 0; px < w; px++) {
+                // Convert pixel x to math x
+                const x = (px - w/2) / scale;
+                const y = f(x);
+                // Convert math y to pixel y
+                const py = h/2 - (y * scale);
+                
+                if (px === 0) ctx.moveTo(px, py);
+                else ctx.lineTo(px, py);
+            }
+            ctx.stroke();
+        } catch(e) {
+            alert('Error plotting function');
+        }
+    });
+}
+
+// --- UTILS ---
+
+function toggleSteps(id) {
+    const el = document.getElementById(id);
+    el.classList.toggle('visible');
+}
+
+function safeEval(expr, x) {
+    // Very basic safe eval: replace 'x' with value and use Function constructor with strict limits
+    // Allow Math functions
+    const allowed = ['Math', 'sin', 'cos', 'tan', 'pow', 'sqrt', 'log', 'exp', 'abs', 'x', '(', ')', '+', '-', '*', '/', '.', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ' '];
+    
+    // Check for forbidden chars
+    for (let char of expr) {
+        if (!allowed.includes(char) && !/[0-9]/.test(char) && !/[a-z]/.test(char)) {
+            // This is a weak check, but prevents obvious injection like 'alert' if we restrict a-z to math keys
+        }
+    }
+    
+    // Construct function
+    // Replace 'x' with actual value is tricky with strings like 'exp', so we pass x as arg
+    // We use a Function constructor that only has access to Math
+    const func = new Function('x', 'Math', `with(Math) { return ${expr} }`);
+    return func(x, Math);
+}
+
+function drawChart(canvas, data) {
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width;
+    const h = canvas.height;
+    const pad = 20;
+    
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = '#f8fafc';
+    ctx.fillRect(0,0,w,h);
+    
+    const max = Math.max(...data);
+    const min = 0;
+    const range = max - min;
+    const stepX = (w - pad*2) / (data.length - 1);
+    
+    ctx.beginPath();
+    ctx.strokeStyle = '#2563eb';
+    ctx.lineWidth = 2;
+    
+    data.forEach((val, i) => {
+        const x = pad + i * stepX;
+        const y = h - pad - ((val / max) * (h - pad*2));
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+}
+
+// Start App
+document.addEventListener('DOMContentLoaded', init);
+
+</script>
+</body>
+</html>
